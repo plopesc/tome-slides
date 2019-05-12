@@ -1,0 +1,54 @@
+/**
+ * Drupal dev days 2019 theme for reveal.js.
+ *
+ * Copyright (C) 2019 Rodrigo Aguilera, https://www.rodrigoaguilera.net
+ */
+
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+
+// Include theme-specific fonts
+// @import url(https://fonts.googleapis.com/css?family=Montserrat:700);
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab);
+
+
+// Override theme settings (see ../template/settings.scss)
+$backgroundColor: #111;
+
+$mainFont: 'Roboto Slab', sans-serif;
+$headingFont: 'Roboto Slab', sans-serif;
+$mainFontSize: 25px;
+$headingColor: rgb(87, 87, 87);
+$mainColor: rgb(87, 87, 87);
+$grey: #eee;
+
+$linkColor: rgb(252, 176, 42);
+$linkColorHover: lighten( $linkColor, 20% );
+$subtitleColor: rgb(159, 26, 70);
+$headingTextShadow: none;
+$headingLetterSpacing: -0.03em;
+$headingTextTransform: none;
+$selectionBackgroundColor: #e7ad52;
+
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
+
+.reveal section {
+  h2, h3 {
+    color: $linkColor;
+  }
+}
+
+.reveal section .subtitle {
+  color: $subtitleColor;
+}
+
+.reveal .slides .grey {
+  color: $grey;
+}
