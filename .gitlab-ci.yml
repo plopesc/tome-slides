@@ -4,7 +4,7 @@ image: node:10
 pages:
   stage: deploy
   script:
-  - cp . /tmp/public && mv /tmp/public .
+  - cp -a . /tmp/public && mv /tmp/public .
   artifacts:
     paths:
     - public
