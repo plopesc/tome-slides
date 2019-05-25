@@ -38,6 +38,18 @@
 				border: none;
 				box-shadow: none;
 			}
+
+			div.overlay {
+				position: absolute;
+				width: 42%;
+				right: 0;
+				box-shadow: 0 1px 4px rgba(0,0,0,0.5), 0 5px 25px rgba(0,0,0,0.2);
+				background-color: rgba(0, 0, 0, 0.9);
+				color: #fff;
+				padding: 20px;
+				font-size: 20px;
+				text-align: left;
+			}
 		</style>
 	</head>
 	<body>
@@ -95,22 +107,22 @@
 
 				<section>
 					<section data-background-iframe="https://developmentseed.org/" data-background-interactive>
-						<div style="position: absolute; width: 42%; right: 0; box-shadow: 0 1px 4px rgba(0,0,0,0.5), 0 5px 25px rgba(0,0,0,0.2); background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px; font-size: 20px; text-align: left;">
+						<div class="overlay">
 							<h3>https://developmentseed.org</h3>
 							<p>Static site built with Jekyll.</p>
 						</div>
 					</section>
 
 					<section data-background-image="img/letsencrypt.png" data-background-size="contain">
-						<div style="position: absolute; width: 42%; right: 0; box-shadow: 0 1px 4px rgba(0,0,0,0.5), 0 5px 25px rgba(0,0,0,0.2); background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px; font-size: 20px; text-align: left;">
-							<h3>https://letsencrypt.org/</h3>
+						<div class="overlay">
+							<h3>https://letsencrypt.org</h3>
 							<p>Static site built with Hugo.</p>
 						</div>
 					</section>
 
 					<section data-background-image="img/react.png" data-background-size="contain">
-						<div style="position: absolute; width: 42%; right: 0; box-shadow: 0 1px 4px rgba(0,0,0,0.5), 0 5px 25px rgba(0,0,0,0.2); background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px; font-size: 20px; text-align: left;">
-							<h3>https://reatcjs.org/</h3>
+						<div class="overlay">
+							<h3>https://reatcjs.org</h3>
 							<p>Static site built with Gatsby.</p>
 						</div>
 					</section>
@@ -710,13 +722,13 @@ PHP_VERSION="7.2"
 
 					</section>
 					<section data-background-iframe="https://umami.netlify.com" data-background-interactive>
-						<div style="position: absolute; width: 40%; right: 0; box-shadow: 0 1px 4px rgba(0,0,0,0.5), 0 5px 25px rgba(0,0,0,0.2); background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px; font-size: 20px; text-align: left;">
+						<div class="overlay">
 							<h3>https://umami.netlify.com</h3>
-							<p>You can no notice any diffence between hosted & static site. Search is possible thanks to Lunr.</p>
+							<p>You can no notice any difference between hosted & static site. Search is possible thanks to Lunr.</p>
 						</div>
 					</section>
 					<section data-background-iframe="https://tome-demo.github.io" data-background-interactive>
-						<div style="position: absolute; width: 40%; right: 0; box-shadow: 0 1px 4px rgba(0,0,0,0.5), 0 5px 25px rgba(0,0,0,0.2); background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px; font-size: 20px; text-align: left;">
+						<div class="overlay">
 							<h3>Other modules</h3>
 							<p>Tome site including other modules like Paragraphs, Geofield, Geocoder, Leaflet, Redirect, Quicklink...</p>
 						</div>
