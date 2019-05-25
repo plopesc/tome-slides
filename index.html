@@ -21,32 +21,688 @@
 			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
 		</script>
+		<style>
+			.container{
+				display: flex;
+			}
+			.col{
+				flex: 1;
+			}
+
+			h1.meme{
+				color: #eee;
+				text-shadow: 5px 5px #000;
+			}
+
+			.reveal section img.no-border {
+				border: none;
+				box-shadow: none;
+			}
+		</style>
 	</head>
 	<body>
 		<div class="reveal">
 			<div class="slides">
 				<section data-background-image="img/title-background.png" data-background-size="contain">
-					<h1 class="grey">
-						Title slide
-					</h1>
-					<h2>Subtitle</h2>
-					<p class="grey">Add speaker name</p>
-
-				</section>
-				<section data-background-image="img/secondary-background.png" data-background-size="contain">
-					<h2>
-						Title slide
-					</h2>
-					<h3>Subtitle</h3>
+					<h2>Tome: The native way to build Drupal static sites</h2>
+					<p class="grey">Pablo López Escobes</p>
 
 				</section>
 				<section data-background-image="img/default-background.png" data-background-size="contain">
-					<h2>
-						Main header
-					</h2>
-					<p class="subtitle"> Subtitle if required</p>
-					<p>One paragraph</p>
+					<div class="container">
+
+						<div class="col">
+							<h2>
+								Pablo López
+							</h2>
+							<p class="subtitle">PHP/Drupal Developer</p>
+							<p>@plopesc</p>
+							<img width="256" data-src="img/cocomore.png" alt="Cocomore" class="no-border">
+						</div>
+
+						<div class="col">
+							<img width="340" data-src="img/profile_porto.jpg" alt="Pablo's profile">
+						</div>
+
+					</div>
+
 				</section>
+
+				<section data-background-image="img/back-to-future.jpg" data-background-size="contain">
+				</section>
+
+				<section data-background-image="img/first-web.jpg" data-background-size="contain">
+				</section>
+
+				<section data-background-image="img/html.gif" data-background-size="contain">
+				</section>
+
+				<section data-background-image="img/drupal-forum.jpg" data-background-size="contain">
+				</section>
+
+				<section data-background-image="img/realize.gif" data-background-size="contain">
+				</section>
+
+				<section data-background-image="img/fuck-yeah.gif" data-background-size="contain">
+					<h1 class="meme"><strong>KEEP IT SIMPLE!</strong></h1>
+				</section>
+
+				<section>
+					<section data-background-image="img/secondary-background.png" data-background-size="contain">
+						<h2>
+							Static sites are enough in multiple use cases
+						</h2>
+					</section>
+					<section data-background-image="img/secondary-background.png" data-background-size="contain">
+						<h2>
+							Requires less infrastructure
+						</h2>
+						<p>
+						<ul>
+							<li>
+								Github/Github pages
+							</li>
+							<li>
+								Forget about caching, varnish, etc.
+							</li>
+						</ul>
+						</p>
+					</section>
+					<section data-background-image="img/secondary-background.png" data-background-size="contain">
+						<h2>
+							Faster
+						</h2>
+						<p>
+						<ul>
+							<li>
+								Github/Github pages
+							</li>
+							<li>
+								CDN
+							</li>
+						</ul>
+						</p>
+					</section>
+					<section data-background-image="img/secondary-background.png" data-background-size="contain">
+						<h2>
+							Safer
+						</h2>
+						<p>
+						<ul>
+							<li>
+								Forget about <strong>code</strong> security updates
+							</li>
+							<li>
+								No database to take care of
+							</li>
+						</ul>
+						</p>
+					</section>
+				</section>
+
+				<section>
+					<section data-background-image="img/secondary-background.png" data-background-size="contain">
+						<h2>
+							But have some limitations
+						</h2>
+					</section>
+					<section data-background-image="img/secondary-background.png" data-background-size="contain">
+						<h2>
+							Authenticated users
+						</h2>
+						<p>
+						<ul>
+							<li>
+								Same content for every user
+							</li>
+						</ul>
+						</p>
+					</section>
+					<section data-background-image="img/secondary-background.png" data-background-size="contain">
+						<h2>
+							Forms
+						</h2>
+						<p>
+						<ul>
+							<li>
+								There is no backend to process the data
+							</li>
+							<li>
+								There are some alternatives
+							</li>
+						</ul>
+						</p>
+					</section>
+					<section data-background-image="img/secondary-background.png" data-background-size="contain">
+						<h2>
+							Complex search engines
+						</h2>
+						<p>
+						<ul>
+							<li>
+								No facets or filters
+							</li>
+							<li>
+								There are some alternatives
+							</li>
+						</ul>
+						</p>
+					</section>
+					<section data-background-image="img/secondary-background.png" data-background-size="contain">
+						<h2>
+							Every change requires a deployment
+						</h2>
+						<p>
+						<ul>
+							<li>
+								Force editors to be bold
+							</li>
+							<li>
+								Deployments can be automated
+							</li>
+						</ul>
+						</p>
+					</section>
+				</section>
+
+				<section data-background-image="img/secondary-background.png" data-background-size="contain">
+					<h2>
+						WHY CAN'T MY SITE BE STATIC?
+					</h2>
+					<p>@brianperry</p>
+
+				</section>
+
+				<section data-background-image="img/delorean.jpg" data-background-size="contain">
+					<h1 class="meme">
+						<strong>But I want to use Drupal</strong>
+					</h1>
+
+				</section>
+
+				<section>
+					<section data-background-image="img/secondary-background.png" data-background-size="contain">
+						<h2>Multiple options</h2>
+						<div class="container">
+							<div class="col">
+								<img height="110" data-src="img/jekyll.png" alt="Jekyll">
+							</div>
+							<div class="col">
+								<img height="110" data-src="img/gatsby.jpg" alt="Gatsby">
+							</div>
+							<div class="col">
+								<img height="110" data-src="img/tome.png" alt="Tome">
+							</div>
+						</div>
+						<h3 class="subtitle"><a class="subtitle" href="https://staticdrupal.site">https://staticdrupal.site</a></h3>
+
+					</section>
+					<section data-background-image="img/secondary-background.png" data-background-size="contain">
+						<h2>Jekyll</h2>
+						<div class="container">
+
+							<div class="col">
+								<ul>
+									<li>Built in Ruby</li>
+									<li>Liquid templating engine</li>
+									<li>Supported natively by Github pages</li>
+									<li>Content in version control</li>
+									<li>No Drupal 8 support <img data-src="img/warning.png" alt="Warning" width="32" class="no-border" style="margin: 0;"></li>
+								</ul>
+							</div>
+
+							<div class="col">
+								<img width="256" data-src="img/jekyll.png" alt="Jekyll">
+							</div>
+
+						</div>
+						<p>&nbsp</p>
+						<p>&nbsp</p>
+
+					</section>
+					<section data-background-image="img/secondary-background.png" data-background-size="contain">
+						<h2>Gatsby</h2>
+						<div class="container">
+
+							<div class="col">
+								<ul>
+									<li>Built in React</li>
+									<li>JSX templating engine</li>
+									<li>Incredibly fast</li>
+									<li>Huge plugin ecosystem</li>
+									<li>Not just for static sites</li>
+								</ul>
+							</div>
+
+							<div class="col">
+								<img width="256" data-src="img/gatsby.jpg" alt="Gatsby">
+							</div>
+
+						</div>
+						<p>&nbsp</p>
+						<p>&nbsp</p>
+
+					</section>
+					<section data-background-image="img/secondary-background.png" data-background-size="contain">
+						<h2>Tome</h2>
+						<div class="container">
+
+							<div class="col">
+								<ul>
+									<li>Built natively in Drupal</li>
+									<li>Twig templating engine</li>
+									<li>Exports and imports content in JSON</li>
+									<li>Useful to archive Drupal sites</li>
+								</ul>
+							</div>
+
+							<div class="col">
+								<img width="256" data-src="img/tome.png" alt="Tome">
+							</div>
+
+						</div>
+						<p>&nbsp</p>
+						<p>&nbsp</p>
+
+					</section>
+					<section data-background-iframe="https://www.staticdrupal.site/" data-background-interactive>
+					</section>
+				</section>
+
+				<section>
+					<section data-background-image="img/secondary-background.png" data-background-size="contain">
+						<h2>
+							Tome
+						</h2>
+						<ul>
+							<li>The native way to build Drupal static sites</li>
+							<li>Drupal only runs in your local machine</li>
+							<li>Static builds are always partial and cached by default</li>
+							<li>All commands scale using a combination of concurrency and batching</li>
+						</ul>
+						<p class="subtitle"><a class="subtitle" href="https://tome.fyi">https://tome.fyi</a></p>
+						<p>&nbsp</p>
+
+					</section>
+					<section data-background-image="img/secondary-background.png" data-background-size="contain">
+						<h2>
+							CREDITS
+						</h2>
+						<div class="container">
+
+							<div class="col">
+								<h2>
+									Sam Mortenson
+								</h2>
+								<p class="subtitle">Tome creator/maintainer</p>
+								<p class="subtitle">Drupal Security Team member</p>
+								<p>d.o: <a href="https://www.drupal.org/u/samuelmortenson">samuel.mortenson</a></p>
+								<p>@DrupalSAM</p>
+							</div>
+
+							<div class="col">
+								<img width="340" data-src="img/profile_sam.jpg" alt="Sam's profile">
+							</div>
+
+						</div>
+
+					</section>
+					<section data-background-iframe="https://tome.fyi/" data-background-interactive>
+					</section>
+				</section>
+				<section>
+					<section data-background-image="img/secondary-background.png" data-background-size="contain">
+						<h2>
+							Tome modules
+						</h2>
+						<ul>
+							<li>Tome is built as a family of modules</li>
+							<li>Each module provides an isolated feature</li>
+							<li>Not all required based on the project architecture</li>
+						</ul>
+
+					</section>
+					<section data-background-image="img/secondary-background.png" data-background-size="contain">
+						<h2>
+							Tome Static
+						</h2>
+						<h3>It handles the static site generation</h3>
+						<pre style="font-size: 0.85em;"><code class="hljs" data-trim data-line-numbers="1-9">
+$ drush tome:static
+$ drush tome:static-export-path
+$ drush tome:preview
+					</code></pre>
+
+					</section>
+					<section data-background-image="img/secondary-background.png" data-background-size="contain">
+						<h2>
+							Tome Sync
+						</h2>
+						<h3>It handles the content & config storage</h3>
+						<pre style="font-size: 0.85em;"><code class="hljs" data-trim data-line-numbers="1-9">
+$ drush tome:clean-files
+$ drush tome:export
+$ drush tome:export-content
+$ drush tome:import
+$ drush tome:import-content
+$ drush tome:import-complete
+$ drush tome:import-partial
+					</code></pre>
+
+					</section>
+					<section data-background-image="img/secondary-background.png" data-background-size="contain">
+						<h2>
+							Tome Netlify
+						</h2>
+						<h3>Integrates Netlify statig hosting & Tome</h3>
+						<pre style="font-size: 0.85em;"><code class="hljs" data-trim data-line-numbers="1-9">
+$ drush tome-netlify:deploy
+					</code></pre>
+						<p class="subtitle"><a class="subtitle" href="https://www.drupal.org/project/tome_netlify">https://www.drupal.org/project/tome_netlify</a></p>
+
+					</section>
+					<section data-background-image="img/secondary-background.png" data-background-size="contain">
+						<h2>
+							Lunr Search
+						</h2>
+						<h3>Integrates Lunr.js search into Drupal</h3>
+						<p>Search index stored in JS</p>
+						<p>Independent of the rest of Tome modules</p>
+						<p>Really fast</p>
+						<p class="subtitle"><a class="subtitle" href="https://www.drupal.org/project/lunr">https://www.drupal.org/project/lunr</a></p>
+						<p>&nbsp</p>
+						<p>&nbsp</p>
+
+					</section>
+					<section data-background-image="img/secondary-background.png" data-background-size="contain">
+						<h2>
+							Drush commands
+						</h2>
+						<h3>Helper drush commands in a separate package</h3>
+						<pre style="font-size: 0.85em;"><code class="hljs" data-trim data-line-numbers="1-9">
+$ composer require drupal-tome/tome_drush
+$ drush tome:install
+$ drush tome:init
+					</code></pre>
+						<p class="subtitle"><a class="subtitle" href="https://github.com/drupal-tome/tome_drush">https://github.com/drupal-tome/tome_drush</a></p>
+						<p>&nbsp</p>
+
+					</section>
+				</section>
+
+				<section data-background-image="img/secondary-background.png" data-background-size="contain">
+					<h2>
+						Basic setup
+					</h2>
+					<p>See: <a href="https://tome.fyi/docs/getting-started">https://tome.fyi/docs/getting-started</a></p>
+					<pre style="font-size: 0.85em;"><code class="hljs" data-trim data-line-numbers="1-9">
+$ composer create-project drupal-tome/tome-project my_site\
+	--stability dev --no-interaction --no-install
+$ cd my_site
+$ composer install
+# Build a Drupal instance with SQLite and Tome enabled.
+$ drush tome:init
+$ drush runserver 127.0.0.1:8888
+# Perform content changes and generate the static build.
+$ drush tome:static
+					</code></pre>
+
+				</section>
+
+				<section data-background-image="img/secondary-background.png" data-background-size="contain">
+					<h2>
+						Project folder structure
+					</h2>
+					<img width="512" data-src="img/folder-comment.png" alt="Folder structure">
+
+				</section>
+
+				<section data-background-image="img/secondary-background.png" data-background-size="contain">
+					<h2>
+						Big part of Drupal works out of the box
+					</h2>
+					<ul>
+						<li>
+							Views using pagers
+						</li>
+						<li>
+							Aliases/Redirect/Metatag
+						</li>
+						<li>
+							Quicklink
+						</li>
+						<li>
+							Simple sitemap
+						</li>
+						<li>
+							Leaflet/Openlayers
+						</li>
+					</ul>
+
+				</section>
+
+				<section data-background-image="img/secondary-background.png" data-background-size="contain">
+					<h2>
+						There are some limitations
+					</h2>
+					<ul>
+						<li>
+							Anonymous users only
+						</li>
+						<li>
+							Forms: Views Filter/Contact/Webform/Comments
+						</li>
+						<li>
+							Voting: VotingAPI
+						</li>
+						<li>
+							Search/Search API
+						</li>
+						<li>
+							Multilingual only by path
+						</li>
+					</ul>
+
+				</section>
+
+				<section>
+					<section data-background-image="img/secondary-background.png" data-background-size="contain">
+						<h2>
+							Workarounds
+						</h2>
+
+					</section>
+					<section data-background-image="img/secondary-background.png" data-background-size="contain">
+						<h2>
+							Forms
+						</h2>
+						<ul>
+							<li>
+								Netlify forms integration
+							</li>
+							<li>
+								Basic lambda functions
+							</li>
+							<li>
+								3rd party services
+							</li>
+						</ul>
+
+					</section>
+					<section data-background-image="img/secondary-background.png" data-background-size="contain">
+						<h2>
+							Custom paths
+						</h2>
+						<pre style="font-size: 0.85em; width:95%"><code class="hljs" data-trim data-line-numbers="1-12">
+class TomePathSubscriber implements EventSubscriberInterface {
+
+  public function collectPaths(CollectPathsEvent $event) {
+    $event->addPath('/my-custom-path');
+  }
+
+  public static function getSubscribedEvents() {
+    $events[TomeStaticEvents::COLLECT_PATHS][] = ['collectPaths'];
+    return $events;
+  }
+
+}
+					</code></pre>
+
+					</section>
+
+				</section>
+
+				<section>
+					<section data-background-image="img/secondary-background.png" data-background-size="contain">
+						<h2>
+							Workflows
+						</h2>
+
+					</section>
+				</section>
+				<section>
+					<section data-background-image="img/tome-hg3.png" data-background-size="contain" data-background-color="#FFFFFF">
+					</section>
+					<section data-background-image="img/secondary-background.png" data-background-size="contain">
+						<h2>
+							Static site generation & deploy
+						</h2>
+						<p class="subtitle"><a class="subtitle" href="https://github.com/drupal-tome/drupal-tome.github.io">https://github.com/drupal-tome/drupal-tome.github.io</a></p>
+						<pre style="font-size: 0.85em; width:95%"><code class="hljs" data-trim data-line-numbers="1-13">
+drush cron -l https://tome-demo.github.io
+drush tome:static -l https://tome-demo.github.io
+rm -rf gh-pages
+git clone git@github.com:tome-demo/tome-demo.github.io.git gh-pages
+cd gh-pages
+git checkout master || git checkout -b master
+cd ..
+rm -rf gh-pages/*
+cp -r html/* gh-pages/
+cd gh-pages
+git add .
+git commit -m 'Updating gh-pages site'
+git push -u origin master
+					</code></pre>
+
+					</section>
+					<section data-background-image="img/secondary-background.png" data-background-size="contain">
+						<h2>
+							Short demo video
+						</h2>
+
+					</section>
+				</section>
+				<section>
+					<section data-background-image="img/tome-sn2.png" data-background-size="contain" data-background-color="#FFFFFF">
+					</section>
+					<section data-background-image="img/secondary-background.png" data-background-size="contain">
+						<h2>
+							Build local environment and deploy to Netlify
+						</h2>
+						<pre style="font-size: 0.85em; width:95%"><code class="hljs" data-trim data-line-numbers="1-3,5">
+$ git clone git@github.com:plopesc/netlify-template.git
+$ drush tome:install
+$ drush runserver
+# Create/edit content at 127.0.0.1:8888
+$ git push
+					</code></pre>
+						<p class="subtitle">netlify.toml</p>
+						<pre style="font-size: 0.85em; width:95%"><code class="hljs" data-trim data-line-numbers="1-6">
+[build]
+command = "composer install && ./vendor/bin/drush tome:install -y\
+  && ./vendor/bin/drush tome:static -l $DEPLOY_PRIME_URL"
+publish = "html"
+
+[build.environment]
+PHP_VERSION="7.2"
+					</code></pre>
+
+					</section>
+					<section data-background-image="img/secondary-background.png" data-background-size="contain">
+						<h2>
+							Short demo video
+						</h2>
+
+					</section>
+				</section>
+
+				<section data-background-image="img/secondary-background.png" data-background-size="contain">
+					<h2>
+						Build Performance
+					</h2>
+					<table>
+						<thead>
+						<tr>
+							<th>Nodes</th>
+							<th>Terms</th>
+							<th>Build time UI</th>
+							<th>Build time Drush</th>
+						</tr>
+						</thead>
+						<tbody>
+						<tr>
+							<td>20</td>
+							<td>3</td>
+							<td>~13.4s</td>
+							<td>~7.5s</td>
+						</tr>
+						<tr>
+							<td>100</td>
+							<td>20</td>
+							<td>~37.9s</td>
+							<td>~15.9s</td>
+						</tr>
+						<tr>
+							<td>5000</td>
+							<td>100</td>
+							<td>~35m</td>
+							<td>~10m</td>
+						</tr>
+						</tbody>
+					</table>
+					<p class="subtitle">Basic Standard profile installation + Devel Generate</p>
+					<p>&nbsp</p>
+
+				</section>
+
+				<section>
+					<section data-background-image="img/secondary-background.png" data-background-size="contain">
+						<h2>
+							Tome in action
+						</h2>
+
+					</section>
+					<section data-background-iframe="https://umami.netlify.com" data-background-interactive>
+						<div style="position: absolute; width: 40%; right: 0; box-shadow: 0 1px 4px rgba(0,0,0,0.5), 0 5px 25px rgba(0,0,0,0.2); background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px; font-size: 20px; text-align: left;">
+							<h3>https://umami.netlify.com</h3>
+							<p>You can no notice any diffence between hosted & static site. Search is possible thanks to Lunr.</p>
+						</div>
+					</section>
+					<section data-background-iframe="https://tome-demo.github.io" data-background-interactive>
+						<div style="position: absolute; width: 40%; right: 0; box-shadow: 0 1px 4px rgba(0,0,0,0.5), 0 5px 25px rgba(0,0,0,0.2); background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px; font-size: 20px; text-align: left;">
+							<h3>Other modules</h3>
+							<p>Tome site including other modules like Paragraphs, Geofield, Geocoder, Leaflet, Redirect, Quicklink...</p>
+						</div>
+					</section>
+				</section>
+
+				<section data-background-image="img/default-background.png" data-background-size="contain">
+					<h2>
+						Resources
+					</h2>
+					<ul>
+						<li><a href="https://drupalstatic.site">https://drupalstatic.site</a></li>
+						<li><a href="https://tome.fyi">https://tome.fyi</a></li>
+						<li><a href="https://pages.github.com/">https://pages.github.com</a></li>
+						<li><a href="https://docs.gitlab.com/ee/user/project/pages/">https://docs.gitlab.com/ee/user/project/pages/</a></li>
+						<li><a href="https://www.netlify.com/">https://www.netlify.com/</a></li>
+						<li><a href="https://umami.netlify.com/">https://umami.netlify.com/</a></li>
+					</ul>
+				</section>
+				<section data-background-image="img/title-background.png" data-background-size="contain">
+					<h2 style="font-size: 3.25em;">Thank you!</h2>
+				</section>
+
 			</div>
 		</div>
 
