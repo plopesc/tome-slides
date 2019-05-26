@@ -78,6 +78,11 @@
 
 					</div>
 
+					<aside  class="notes">
+						<ul>
+							<li>STATIC != DECOUPLED.</li>
+						</ul>
+					</aside>
 				</section>
 
 				<section data-background-image="img/back-to-future.jpg" data-background-size="contain">
@@ -368,8 +373,9 @@
 							<li>Drupal only runs in your local machine</li>
 							<li>Static builds are always partial and cached by default</li>
 							<li>All commands scale using a combination of concurrency and batching</li>
+							<li>Requires Drupal 8.6.x & Drush 9</li>
 						</ul>
-						<p class="subtitle"><a class="subtitle" href="https://tome.fyi">https://tome.fyi</a></p>
+						<h3 class="subtitle"><a class="subtitle" href="https://tome.fyi">https://tome.fyi</a></h3>
 						<p>&nbsp</p>
 
 					</section>
@@ -422,6 +428,12 @@ $ drush tome:static-export-path
 $ drush tome:preview
 					</code></pre>
 
+						<aside  class="notes">
+							<ul>
+								<li>Emphasize this is the core module.</li>
+								<li>Explain a bit the UI, how content is generated and download UI.</li>
+							</ul>
+						</aside>
 					</section>
 					<section data-background-image="img/secondary-background.png" data-background-size="contain">
 						<h2>
@@ -438,6 +450,13 @@ $ drush tome:import-complete
 $ drush tome:import-partial
 					</code></pre>
 
+						<aside  class="notes">
+							<ul>
+								<li>This module is only necessary if you want to add content to VCS.</li>
+								<li>It works in "watching" mode.</li>
+								<li>Warning about Circular dependencies.</li>
+							</ul>
+						</aside>
 					</section>
 					<section data-background-image="img/secondary-background.png" data-background-size="contain">
 						<h2>
@@ -449,7 +468,14 @@ $ drush tome-netlify:deploy
 					</code></pre>
 						<p class="subtitle"><a class="subtitle" href="https://www.drupal.org/project/tome_netlify">https://www.drupal.org/project/tome_netlify</a></p>
 
+						<aside  class="notes">
+							<ul>
+								<li>This module is only necessary if you want to deploy directly from your local environment.</li>
+								<li>In case you use webhooks, this is unnecessary.</li>
+							</ul>
+						</aside>
 					</section>
+
 					<section data-background-image="img/secondary-background.png" data-background-size="contain">
 						<h2>
 							Lunr Search
@@ -462,7 +488,16 @@ $ drush tome-netlify:deploy
 						<p>&nbsp</p>
 						<p>&nbsp</p>
 
+						<aside  class="notes">
+							<ul>
+								<li>Explain a bit how search indexes are generated via Views.</li>
+								<li>This module can be used in non-static sites as well.</li>
+								<li>This module provides a very basic integration, but can be extended and include more complex stuff like facets.</li>
+								<li>Node commands to re-build index.</li>
+							</ul>
+						</aside>
 					</section>
+
 					<section data-background-image="img/secondary-background.png" data-background-size="contain">
 						<h2>
 							Drush commands
@@ -476,6 +511,11 @@ $ drush tome:init
 						<p class="subtitle"><a class="subtitle" href="https://github.com/drupal-tome/tome_drush">https://github.com/drupal-tome/tome_drush</a></p>
 						<p>&nbsp</p>
 
+						<aside  class="notes">
+							<ul>
+								<li>Wrapper commands to make easy the process to start a new site or reimport an existing one.</li>
+							</ul>
+						</aside>
 					</section>
 				</section>
 
@@ -496,6 +536,12 @@ $ drush runserver 127.0.0.1:8888
 $ drush tome:static
 					</code></pre>
 
+					<aside  class="notes">
+						<ul>
+							<li>Requires the custom drush commands mentioned before.</li>
+							<li>No DB server required, it makes usage of SQLite. Therefore it requires the SQLite & PHP packages.</li>
+						</ul>
+					</aside>
 				</section>
 
 				<section data-background-image="img/secondary-background.png" data-background-size="contain">
@@ -528,6 +574,13 @@ $ drush tome:static
 						</li>
 					</ul>
 
+					<aside  class="notes">
+						<ul>
+							<li>Any module that affects to page layout works.</li>
+							<li>Geocoder module example.</li>
+							<li>Pagers are an internal workaround.</li>
+						</ul>
+					</aside>
 				</section>
 
 				<section data-background-image="img/secondary-background.png" data-background-size="contain">
@@ -552,6 +605,11 @@ $ drush tome:static
 						</li>
 					</ul>
 
+					<aside  class="notes">
+						<ul>
+							<li>Thumb rule: any module that allows anonymous users to interact with the site.</li>
+						</ul>
+					</aside>
 				</section>
 
 				<section>
@@ -576,17 +634,28 @@ $ drush tome:static
 								3rd party services
 							</li>
 						</ul>
+						<p class="subtitle"><a class="subtitle" href="https://github.com/plopesc/lambda_form">https://github.com/plopesc/lambda_form</a></p>
+						<p>&nbsp</p>
 
+						<aside  class="notes">
+							<ul>
+								<li>Mention lambda form module.</li>
+								<li>Mention Disqus for comments alternative.</li>
+								<li>Link to  surveymonkey/Google forms.</li>
+							</ul>
+						</aside>
 					</section>
 					<section data-background-image="img/secondary-background.png" data-background-size="contain">
 						<h2>
-							Custom paths
+							Event Subscribers
 						</h2>
-						<pre style="font-size: 0.85em; width:95%"><code class="hljs" data-trim data-line-numbers="1-12">
+						<p>See: <a href="https://tome.fyi/docs/technical/api">https://tome.fyi/docs/technical/api</a></p>
+						<pre style="font-size: 0.85em; width:95%"><code class="hljs" data-trim data-line-numbers="1-13">
 class TomePathSubscriber implements EventSubscriberInterface {
 
   public function collectPaths(CollectPathsEvent $event) {
     $event->addPath('/my-custom-path');
+	$event->deletePath('/unnecessary-path');
   }
 
   public static function getSubscribedEvents() {
@@ -597,6 +666,13 @@ class TomePathSubscriber implements EventSubscriberInterface {
 }
 					</code></pre>
 
+						<aside  class="notes">
+							<ul>
+								<li>This should not be necessary. Leaflet example.</li>
+								<li>Can be used to replace or exclude paths as well.</li>
+								<li>Mention other events like ModifyDestination or ModifyHtml (Pagers).</li>
+							</ul>
+						</aside>
 					</section>
 
 				</section>
@@ -607,16 +683,32 @@ class TomePathSubscriber implements EventSubscriberInterface {
 							Workflows
 						</h2>
 
+						<p class="subtitle">As much as you can imagine</p>
+
+						<aside  class="notes">
+							<ul>
+								<li>There are multiple scenrios, here I'm exposing 2.</li>
+								<li>Just to show 2 different approaches. The first using a traditional hosted site, the later a fully local Tome sync site.</li>
+							</ul>
+						</aside>
 					</section>
 				</section>
 				<section>
 					<section data-background-image="img/tome-hg3.png" data-background-size="contain" data-background-color="#FFFFFF">
+
+						<aside  class="notes">
+							<ul>
+								<li>The Jenkins is not fully necessary.</li>
+								<li>Explain why Tome Sync is not desired in this environment.</li>
+								<li>GH Pages is an example, other providers can be used as well.</li>
+							</ul>
+						</aside>
 					</section>
 					<section data-background-image="img/secondary-background.png" data-background-size="contain">
 						<h2>
 							Static site generation & deploy
 						</h2>
-						<p class="subtitle"><a class="subtitle" href="https://github.com/drupal-tome/drupal-tome.github.io">https://github.com/drupal-tome/drupal-tome.github.io</a></p>
+						<p>See: <a href="https://github.com/drupal-tome/drupal-tome.github.io">https://github.com/drupal-tome/drupal-tome.github.io</a></p>
 						<pre style="font-size: 0.85em; width:95%"><code class="hljs" data-trim data-line-numbers="1-13">
 drush cron -l https://tome-demo.github.io
 drush tome:static -l https://tome-demo.github.io
@@ -633,6 +725,12 @@ git commit -m 'Updating gh-pages site'
 git push -u origin master
 					</code></pre>
 
+						<aside  class="notes">
+							<ul>
+								<li>This is just an example of my demo site based on repo above.</li>
+								<li>Can be included as a composer script or built as a Jenkins job.</li>
+							</ul>
+						</aside>
 					</section>
 					<section data-background-image="img/secondary-background.png" data-background-size="contain">
 						<h2>
@@ -643,6 +741,13 @@ git push -u origin master
 				</section>
 				<section>
 					<section data-background-image="img/tome-sn2.png" data-background-size="contain" data-background-color="#FFFFFF">
+
+						<aside  class="notes">
+							<ul>
+								<li>This is a pure Tome demo.</li>
+								<li>Netlify is an example but it's really nice how webhooks are created automatically.</li>
+							</ul>
+						</aside>
 					</section>
 					<section data-background-image="img/secondary-background.png" data-background-size="contain">
 						<h2>
@@ -666,6 +771,13 @@ publish = "html"
 PHP_VERSION="7.2"
 					</code></pre>
 
+						<aside  class="notes">
+							<ul>
+								<li>Local environment only requires PHP and SQLite packages.</li>
+								<li>Local environment can be destroyed and recreated just in a few.</li>
+								<li>All the magic is happening in netlify.toml file.</li>
+							</ul>
+						</aside>
 					</section>
 					<section data-background-image="img/secondary-background.png" data-background-size="contain">
 						<h2>
@@ -712,6 +824,13 @@ PHP_VERSION="7.2"
 					<p class="subtitle">Basic Standard profile installation + Devel Generate</p>
 					<p>&nbsp</p>
 
+					<aside  class="notes">
+						<ul>
+							<li>This is not a serious benchmark.</li>
+							<li>It is possible to play with concurrency & batch size parameters. Here using defaults.</li>
+							<li>Mention Sam's performance test repository.</li>
+						</ul>
+					</aside>
 				</section>
 
 				<section>
@@ -720,12 +839,25 @@ PHP_VERSION="7.2"
 							Tome in action
 						</h2>
 
+						<aside  class="notes">
+							<ul>
+								<li>Couple of Tome examples.</li>
+							</ul>
+						</aside>
 					</section>
 					<section data-background-iframe="https://umami.netlify.com" data-background-interactive>
 						<div class="overlay">
 							<h3>https://umami.netlify.com</h3>
 							<p>You can no notice any difference between hosted & static site. Search is possible thanks to Lunr.</p>
 						</div>
+
+						<aside  class="notes">
+							<ul>
+								<li>You cannot notice any difference with the original umami site.</li>
+								<li>Multilingual works.</li>
+								<li>Default core search is replaced with Lunr.</li>
+							</ul>
+						</aside>
 					</section>
 					<section data-background-iframe="https://tome-demo.github.io" data-background-interactive>
 						<div class="overlay">
@@ -733,6 +865,14 @@ PHP_VERSION="7.2"
 							<p>Tome site including other modules like Paragraphs, Geofield, Geocoder, Leaflet, Redirect, Quicklink...</p>
 						</div>
 					</section>
+
+					<aside  class="notes">
+						<ul>
+							<li>Show the homepage and the map.</li>
+							<li>Drupal static candidates are not only blogs.</li>
+							<li>Show redirects & feature Quicklink.</li>
+						</ul>
+					</aside>
 				</section>
 
 				<section data-background-image="img/default-background.png" data-background-size="contain">
