@@ -57,7 +57,7 @@
 			<div class="slides">
 				<section data-background-image="img/title-background.png" data-background-size="contain">
 					<h2>Tome: The native way to build Drupal static sites</h2>
-					<p class="grey">Pablo López Escobes</p>
+					<p class="grey">Pablo López Escobés</p>
 
 				</section>
 				<section data-background-image="img/secondary-background.png" data-background-size="contain">
@@ -143,20 +143,23 @@
 				<section>
 					<section data-background-image="img/secondary-background.png" data-background-size="contain">
 						<h2>
-							Static sites are enough in multiple use cases
+							Static sites have multiple benefits
 						</h2>
 					</section>
 					<section data-background-image="img/secondary-background.png" data-background-size="contain">
 						<h2>
-							Requires less infrastructure
+							Simpler
 						</h2>
 						<p>
 						<ul>
 							<li>
-								Github/Github pages
+								No PHP, MySQL or other server side requirements
 							</li>
 							<li>
-								Forget about caching, varnish, etc.
+								Gitlab/Github pages, Netlify
+							</li>
+							<li>
+								Forget about caching, Varnish, etc.
 							</li>
 						</ul>
 						</p>
@@ -168,7 +171,7 @@
 						<p>
 						<ul>
 							<li>
-								Github/Github pages
+								Just serve files
 							</li>
 							<li>
 								CDN
@@ -187,6 +190,9 @@
 							</li>
 							<li>
 								No database to take care of
+							</li>
+							<li>
+                                                                Other vectors are still there
 							</li>
 						</ul>
 						</p>
@@ -248,7 +254,7 @@
 						<p>
 						<ul>
 							<li>
-								Force editors to be bold
+								Force editors to be careful
 							</li>
 							<li>
 								Deployments can be automated
@@ -387,12 +393,14 @@
 
 							<div class="col">
 								<h2>
-									Sam Mortenson
+									Samuel Mortenson
 								</h2>
 								<p class="subtitle">Tome creator/maintainer</p>
 								<p class="subtitle">Drupal Security Team member</p>
 								<p>d.o: <a href="https://www.drupal.org/u/samuelmortenson">samuel.mortenson</a></p>
 								<p>@DrupalSAM</p>
+								<p>#tome</p>
+								<p>&nbsp</p>
 							</div>
 
 							<div class="col">
@@ -408,7 +416,7 @@
 				<section>
 					<section data-background-image="img/secondary-background.png" data-background-size="contain">
 						<h2>
-							Tome modules
+							Tome architecture
 						</h2>
 						<ul>
 							<li>Tome is built as a family of modules</li>
@@ -482,7 +490,7 @@ $ drush tome-netlify:deploy
 						</h2>
 						<h3>Integrates Lunr.js search into Drupal</h3>
 						<p>Search index stored in JS</p>
-						<p>Independent of the rest of Tome modules</p>
+						<p>Can be used in non-static sites as well</p>
 						<p>Really fast</p>
 						<p class="subtitle"><a class="subtitle" href="https://www.drupal.org/project/lunr">https://www.drupal.org/project/lunr</a></p>
 						<p>&nbsp</p>
@@ -554,7 +562,7 @@ $ drush tome:static
 
 				<section data-background-image="img/secondary-background.png" data-background-size="contain">
 					<h2>
-						Big part of Drupal works out of the box
+						Tome supports almost anything
 					</h2>
 					<ul>
 						<li>
@@ -570,7 +578,7 @@ $ drush tome:static
 							Simple sitemap
 						</li>
 						<li>
-							Leaflet/Openlayers
+							Leaflet/Openlayers/Responsive images
 						</li>
 					</ul>
 
@@ -655,7 +663,7 @@ class TomePathSubscriber implements EventSubscriberInterface {
 
   public function collectPaths(CollectPathsEvent $event) {
     $event->addPath('/my-custom-path');
-	$event->deletePath('/unnecessary-path');
+    $event->deletePath('/unnecessary-path');
   }
 
   public static function getSubscribedEvents() {
@@ -691,6 +699,50 @@ class TomePathSubscriber implements EventSubscriberInterface {
 								<li>Just to show 2 different approaches. The first using a traditional hosted site, the later a fully local Tome sync site.</li>
 							</ul>
 						</aside>
+					</section>
+				</section>
+				<section>
+					<section data-background-image="img/tome-sn2.png" data-background-size="contain" data-background-color="#FFFFFF">
+
+						<aside  class="notes">
+							<ul>
+								<li>This is a pure Tome demo.</li>
+								<li>Netlify is an example but it's really nice how webhooks are created automatically.</li>
+							</ul>
+						</aside>
+					</section>
+					<section data-background-image="img/secondary-background.png" data-background-size="contain">
+						<h2>
+							Build local environment and deploy to Netlify
+						</h2>
+						<pre style="font-size: 0.85em; width:95%"><code class="hljs" data-trim data-line-numbers="1-4,6">
+$ git clone git@github.com:plopesc/netlify-template.git
+$ composer install
+$ drush tome:install
+$ drush runserver
+# Create/edit content at 127.0.0.1:8888
+$ git add . && git commit -m "Code updated" && git push
+					</code></pre>
+						<p class="subtitle">netlify.toml</p>
+						<pre style="font-size: 0.85em; width:95%"><code class="hljs" data-trim data-line-numbers="1-7">
+[build]
+command = "composer install && ./vendor/bin/drush tome:install -y\
+  && ./vendor/bin/drush tome:static -l $DEPLOY_PRIME_URL"
+publish = "html"
+
+[build.environment]
+PHP_VERSION="7.2"
+					</code></pre>
+
+						<aside  class="notes">
+							<ul>
+								<li>Local environment only requires PHP and SQLite packages.</li>
+								<li>Local environment can be destroyed and recreated just in a few.</li>
+								<li>All the magic is happening in netlify.toml file.</li>
+							</ul>
+						</aside>
+					</section>
+					<section data-background-iframe="https://www.youtube.com/embed/IO89cOSEmmI" data-background-color="#000000" >
 					</section>
 				</section>
 				<section>
@@ -732,61 +784,27 @@ git push -u origin master
 							</ul>
 						</aside>
 					</section>
-					<section data-background-image="img/secondary-background.png" data-background-size="contain">
-						<h2>
-							Short demo video
-						</h2>
-
+					<section data-background-iframe="https://www.youtube.com/embed/YYPylquFmlI" data-background-color="#000000" >
 					</section>
 				</section>
 				<section>
-					<section data-background-image="img/tome-sn2.png" data-background-size="contain" data-background-color="#FFFFFF">
+					<section data-background-image="img/secondary-background.png" data-background-size="contain">
+						<h2>
+							Manually
+						</h2>
+
+						<img width="90%" data-src="img/tome-generate.png" alt="Tome Generate" class="no-border">
+						<img width="90%" data-src="img/tome-download.png" alt="Tome Download" class="no-border">
 
 						<aside  class="notes">
 							<ul>
-								<li>This is a pure Tome demo.</li>
-								<li>Netlify is an example but it's really nice how webhooks are created automatically.</li>
+								<li>Tome allows to generate & preview & download static builds from the UI.</li>
+								<li>This is not the fanciera approach, but it works and can be enough in some user cases.</li>
+								<li>UI generation performance is poor compared to Drush.</li>
 							</ul>
 						</aside>
-					</section>
-					<section data-background-image="img/secondary-background.png" data-background-size="contain">
-						<h2>
-							Build local environment and deploy to Netlify
-						</h2>
-						<pre style="font-size: 0.85em; width:95%"><code class="hljs" data-trim data-line-numbers="1-3,5">
-$ git clone git@github.com:plopesc/netlify-template.git
-$ drush tome:install
-$ drush runserver
-# Create/edit content at 127.0.0.1:8888
-$ git push
-					</code></pre>
-						<p class="subtitle">netlify.toml</p>
-						<pre style="font-size: 0.85em; width:95%"><code class="hljs" data-trim data-line-numbers="1-6">
-[build]
-command = "composer install && ./vendor/bin/drush tome:install -y\
-  && ./vendor/bin/drush tome:static -l $DEPLOY_PRIME_URL"
-publish = "html"
-
-[build.environment]
-PHP_VERSION="7.2"
-					</code></pre>
-
-						<aside  class="notes">
-							<ul>
-								<li>Local environment only requires PHP and SQLite packages.</li>
-								<li>Local environment can be destroyed and recreated just in a few.</li>
-								<li>All the magic is happening in netlify.toml file.</li>
-							</ul>
-						</aside>
-					</section>
-					<section data-background-image="img/secondary-background.png" data-background-size="contain">
-						<h2>
-							Short demo video
-						</h2>
-
 					</section>
 				</section>
-
 				<section data-background-image="img/secondary-background.png" data-background-size="contain">
 					<h2>
 						Build Performance
@@ -847,7 +865,7 @@ PHP_VERSION="7.2"
 					</section>
 					<section data-background-iframe="https://umami.netlify.com" data-background-interactive>
 						<div class="overlay">
-							<h3>https://umami.netlify.com</h3>
+							<h3><a href="https://umami.netlify.com">https://umami.netlify.com</a></h3>
 							<p>You can no notice any difference between hosted & static site. Search is possible thanks to Lunr.</p>
 						</div>
 
@@ -861,7 +879,7 @@ PHP_VERSION="7.2"
 					</section>
 					<section data-background-iframe="https://tome-demo.github.io" data-background-interactive>
 						<div class="overlay">
-							<h3>Other modules</h3>
+							<h3><a href="https://tome-demo.github.io">https://tome-demo.github.io</a></h3>
 							<p>Tome site including other modules like Paragraphs, Geofield, Geocoder, Leaflet, Redirect, Quicklink...</p>
 						</div>
 					</section>
@@ -873,6 +891,9 @@ PHP_VERSION="7.2"
 							<li>Show redirects & feature Quicklink.</li>
 						</ul>
 					</aside>
+				</section>
+
+				<section data-background-image="img/final.gif" data-background-size="contain">
 				</section>
 
 				<section data-background-image="img/default-background.png" data-background-size="contain">
@@ -887,10 +908,12 @@ PHP_VERSION="7.2"
 						<li><a href="https://www.netlify.com/">https://www.netlify.com/</a></li>
 						<li><a href="https://umami.netlify.com/">https://umami.netlify.com/</a></li>
 						<li><a href="https://github.com/plopesc/lambda_form">https://github.com/plopesc/lambda_form</a></li>
+						<li><a href="https://medium.com/limitedio/gatsby-and-drupal-match-made-in-heaven-379d0136f68a">https://medium.com/limitedio/gatsby-and-drupal-match-made-in-heaven-379d0136f68a</a></li>
 					</ul>
 				</section>
 				<section data-background-image="img/title-background.png" data-background-size="contain">
 					<h2 style="font-size: 3.25em;">Thank you!</h2>
+					<p class="grey"><a href="https://plopesc.github.io/tome-slides">https://plopesc.github.io/tome-slides</a></p>
 				</section>
 
 			</div>
