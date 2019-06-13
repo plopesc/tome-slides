@@ -186,13 +186,13 @@
 						<p>
 						<ul>
 							<li>
-								Forget about <strong>code</strong> security updates
+								Forget about <strong>server side code</strong> security updates
 							</li>
 							<li>
 								No database to take care of
 							</li>
 							<li>
-                                                                Other vectors are still there
+								Other vectors are still there
 							</li>
 						</ul>
 						</p>
@@ -232,7 +232,7 @@
 						</ul>
 						</p>
 					</section>
-					<section data-background-image="img/secondary-background.png" data-background-size="contain">
+					<!--<section data-background-image="img/secondary-background.png" data-background-size="contain">
 						<h2>
 							Complex search engines
 						</h2>
@@ -246,7 +246,7 @@
 							</li>
 						</ul>
 						</p>
-					</section>
+					</section>-->
 					<section data-background-image="img/secondary-background.png" data-background-size="contain">
 						<h2>
 							Every change requires a deployment
@@ -562,7 +562,7 @@ $ drush tome:static
 
 				<section data-background-image="img/secondary-background.png" data-background-size="contain">
 					<h2>
-						Tome supports almost anything
+						Most Drupal features are supported
 					</h2>
 					<ul>
 						<li>
@@ -578,7 +578,7 @@ $ drush tome:static
 							Simple sitemap
 						</li>
 						<li>
-							Leaflet/Openlayers/Responsive images
+							Leaflet/Responsive images/Layout Builder
 						</li>
 					</ul>
 
@@ -600,7 +600,7 @@ $ drush tome:static
 							Anonymous users only
 						</li>
 						<li>
-							Forms: Views Filter/Contact/Webform/Comments
+							Forms: Views Filters/Contact/Webform/Comments
 						</li>
 						<li>
 							Voting: VotingAPI
@@ -609,7 +609,7 @@ $ drush tome:static
 							Search/Search API
 						</li>
 						<li>
-							Multilingual only by path
+							Multilingual only by path / domain
 						</li>
 					</ul>
 
@@ -650,6 +650,26 @@ $ drush tome:static
 								<li>Mention lambda form module.</li>
 								<li>Mention Disqus for comments alternative.</li>
 								<li>Link to  surveymonkey/Google forms.</li>
+							</ul>
+						</aside>
+					</section>
+					<section data-background-image="img/secondary-background.png" data-background-size="contain">
+						<h2>
+							Search
+						</h2>
+						<ul>
+							<li>
+								Lunr
+							</li>
+							<li>
+								Direct calls to external services
+							</li>
+						</ul>
+
+						<aside  class="notes">
+							<ul>
+								<li>Lunr is a staic client side option totally OK.</li>
+								<li>Solr/ElasticSearch API calls from JS and need to handle the HTML output.</li>
 							</ul>
 						</aside>
 					</section>
@@ -866,7 +886,7 @@ git push -u origin master
 					<section data-background-iframe="https://umami.netlify.com" data-background-interactive>
 						<div class="overlay">
 							<h3><a href="https://umami.netlify.com">https://umami.netlify.com</a></h3>
-							<p>You can no notice any difference between hosted & static site. Search is possible thanks to Lunr.</p>
+							<p>You cannot notice any difference between hosted & static version. Search is possible thanks to Lunr.</p>
 						</div>
 
 						<aside  class="notes">
